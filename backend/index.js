@@ -1,11 +1,14 @@
 /*
-npm install -  express nodemon mongoose
+npm install 
+1) express 
+2) nodemon 
+3) mongoose
 
 
 */
 
 
-import express from "express";
+import express, { response } from "express";
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
 import { Book } from './models/bookModel.js';
@@ -51,6 +54,24 @@ app.post('/books', async (request, response) => {
         response.status(500).send({ message: error.message });
     }
 })
+
+// Route for Getting All books from database
+app.get('/books', async (request, response) => {
+    try {
+        const books = await Book.find({});
+
+        return response.status(200).json({
+            count: books.length,
+            data: books
+        });
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({ message: error.message });
+    }
+})
+
+
 
 
 // connect to mongoDB database
