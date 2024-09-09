@@ -22,7 +22,6 @@ app.use(express.json());
 app.get('/', (request, response) => {
     console.log(request);
     return response.status(234).send('1. Get the /, then 2) return this SENT message to the server :))');
-
 });
 
 // Route for Saving a new Book
@@ -71,7 +70,21 @@ app.get('/books', async (request, response) => {
     }
 })
 
+// Route for Getting One book from database
+app.get('/books/:id', async (request, response) => {
+    try {
 
+        const { id } = request.params;
+
+        const book = await Book.findById(id);
+
+        return response.status(200).json(book);
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({ message: error.message });
+    }
+})
 
 
 // connect to mongoDB database
