@@ -9,7 +9,7 @@ const bookSchema = mongoose.Schema(
     {
         title: {
             type: String,
-            require: true
+            required: true
         },
 
         author: {
@@ -24,4 +24,4 @@ const bookSchema = mongoose.Schema(
     }
 )
 
-export const Book = mongoose.model('Book', bookSchema);
+export default mongoose.model('Book', bookSchema); // create a Book by this Schema
