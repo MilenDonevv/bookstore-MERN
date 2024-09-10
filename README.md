@@ -113,4 +113,4 @@ This is a full-stack MERN (MongoDB, Express, React, Node.js) application for man
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/your-username/mern-bookstore-app.git](https://github.com/MilenDonevv/bookstore-MERN.git)
+   git clone https://github.com/MilenDonevv/bookstore-MERN.git
