@@ -5,8 +5,8 @@ import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 
 const ShowBook = () => {
-  // const url = "http://localhost:5555";
-  const url = "https://bookstore-mern-ywb2.onrender.com";
+  const url = "http://localhost:5555";
+  // const url = "https://bookstore-mern-ywb2.onrender.com";
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
