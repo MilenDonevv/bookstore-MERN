@@ -18,6 +18,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 const PORT = process.env.PORT || 5555;
+const mongoDBURL = process.env.mongoDBURL;
+
 const app = express();
 
 // Middleware for parsing request body
@@ -50,7 +52,7 @@ app.use("/books", BooksRoute);
 
 // connect to mongoDB database
 mongoose
-  .connect(process.env.mongoDBURL)
+  .connect(mongoDBURL)
   .then(() => {
     console.log("App connected to database");
 

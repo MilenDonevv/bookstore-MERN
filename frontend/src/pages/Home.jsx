@@ -18,7 +18,7 @@ const Home = () => {
         setLoading(true);
 
         axios
-            .get('https://bookstore-mern-backed.onrender.com/books')
+            .get('http://localhost:5555/books')
             .then((response) => {
                 setBooks(response.data.data);   // response.data -> the object of our result
                 setLoading(false);
