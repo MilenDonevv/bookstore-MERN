@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import {AiOutlineEdit} from 'react-icons/ai';  // edit Icon
 import {BsInfoCircle} from 'react-icons/bs';  // info Icon
-import {MdOutlineAddBox, MdOutlineDelete} from 'react-icons/md';  // Add + Delete  Icons
+import { MdOutlineDelete } from 'react-icons/md';  // Add + Delete  Icons
 
 const BooksTable = ({ books }) => {
   return (
-    <table className='w-full border-separate border-spacing-2'>
+    <table className='w-full border-separate border-spacing-2 border-blue-400 bg-white bg-opacity-90 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out'>
     <thead>
         <tr>
             <th className='border border-slate-600 rounded-md'>No</th>
