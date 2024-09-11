@@ -13,12 +13,15 @@ import mongoose from "mongoose";
 import  BooksRoute  from "./Routes/booksRoute.js";
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
 
 
 
-dotenv.config();
+dotenv.config({ path: path.resolve('./backend/.env') });
 const PORT = process.env.PORT || 5555;
 const mongoDBURL = process.env.mongoDBURL;
+
+const __dirname =  path.resolve();
 
 const app = express();
 
@@ -50,6 +53,14 @@ app.get("/", (request, response) => {
 
 app.use("/books", BooksRoute);
 
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
+    })
+}
+
 // connect to mongoDB database
 mongoose
   .connect(mongoDBURL)
@@ -65,13 +76,6 @@ mongoose
     console.log(error);
   });
 
-  const a = process.env.PORT;
-  console.log(a);
-  console.log(typeof a);
-
-  const b = process.env.mongoDBURL;
-  console.log(b);
-  console.log(typeof b);
 
 /*
 
