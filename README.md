@@ -2,6 +2,15 @@
 
 This is a full-stack MERN (MongoDB, Express, React, Node.js) application for managing a collection of books. It covers everything from setting up a Node.js server and connecting it to MongoDB, to creating a user-friendly React-based frontend.
 
+## How to start the Project
+
+To start the project, please run the following command in the root directory:
+
+_npm start_
+
+This will start both the backend server and the frontend side.
+
+
 ## Features
 
 - **Create, Read, Update, Delete (CRUD)** operations for books
