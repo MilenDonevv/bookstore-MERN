@@ -9,6 +9,8 @@ import BooksCard from '../components/home/BooksCard';
 import BooksTable from '../components/home/BooksTable';
 
 const Home = () => {
+  // const url = "http://localhost:5555";
+  const url = "https://bookstore-mern-ywb2.onrender.com";
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
     const [showType, setShowType] = useState('table')
@@ -18,7 +20,7 @@ const Home = () => {
         setLoading(true);
 
         axios
-            .get('http://localhost:5555/books')
+            .get(url + '/books')
             .then((response) => {
                 setBooks(response.data.data);   // response.data -> the object of our result
                 setLoading(false);

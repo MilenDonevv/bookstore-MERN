@@ -65,6 +65,14 @@ mongoose
     console.log(error);
   });
 
+  const a = process.env.PORT;
+  console.log(a);
+  console.log(typeof a);
+
+  const b = process.env.mongoDBURL;
+  console.log(b);
+  console.log(typeof b);
+
 /*
 
 Mongoose methods:

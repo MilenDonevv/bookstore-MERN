@@ -8,6 +8,8 @@ import { useSnackbar } from 'notistack'
 
 const EditBook = () => {
 
+  // const url = "http://localhost:5555";
+  const url = "https://bookstore-mern-ywb2.onrender.com";
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [publishYear, setPublishYear] = useState('');
@@ -21,7 +23,7 @@ const EditBook = () => {
     setLoading(true);
 
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(url + `/books/${id}`)
       .then((response) => {
         setAuthor(response.data.author)
         setPublishYear(response.data.publishYear)
@@ -46,7 +48,7 @@ const EditBook = () => {
     setLoading(true);
 
     axios
-      .put(`http://localhost:5555/books/${id}`, data)
+      .put(url + `/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Edited successfully!', { variant: 'success'});

@@ -8,6 +8,8 @@ import { useSnackbar } from 'notistack'
 
 
 const DeleteBook = () => {
+  // const url = "http://localhost:5555";
+  const url = "https://bookstore-mern-ywb2.onrender.com";
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -18,7 +20,7 @@ const DeleteBook = () => {
     setLoading(true);
 
     axios
-      .delete(`http://localhost:5555/books/${id}`)
+      .delete(url + `/books/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Deleted successfully!', { variant: 'success' })

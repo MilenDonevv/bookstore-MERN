@@ -5,6 +5,8 @@ import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 
 const ShowBook = () => {
+  // const url = "http://localhost:5555";
+  const url = "https://bookstore-mern-ywb2.onrender.com";
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -12,7 +14,7 @@ const ShowBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(url + `/books/${id}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);
